@@ -3,213 +3,861 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>John Marc Dela Cruz</title>
+  <title>John Marc Dela Cruz — UGC Creator</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Geist+Mono:wght@300;400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --cream: #f5f0e8;
-      --ink: #1a1612;
-      --rust: #b85c38;
-      --muted: #8a7f74;
-      --line: rgba(26,22,18,0.12);
+      --white: #ffffff;
+      --black: #0a0a0a;
+      --grey-200: #e8e8e8;
+      --grey-400: #9a9a9a;
+      --max-width: 1200px;
     }
 
-    html, body {
-      height: 100%;
-      background: var(--cream);
-      color: var(--ink);
-      font-family: 'Geist Mono', monospace;
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--white);
+      color: var(--black);
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ---- UTILITY ---- */
+    .section-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 7rem 3rem;
+    }
+
+    .section-label {
+      font-size: 0.58rem;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--grey-400);
+      margin-bottom: 3.5rem;
+    }
+
+    /* ---- NAV ---- */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 3rem;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+    }
+
+    .nav-ctas {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .nav-ctas a {
+      font-size: 0.58rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 0.6rem 1.25rem;
+      transition: all 0.2s;
+    }
+
+    .nav-ctas a.btn-outline {
+      color: var(--black);
+      border: 1px solid var(--black);
+    }
+
+    .nav-ctas a.btn-outline:hover {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .nav-ctas a.btn-solid {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .nav-ctas a.btn-solid:hover { opacity: 0.7; }
+
+    /* ---- HERO ---- */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 8rem 3rem 5rem;
+      width: 100%;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      font-size: 0.58rem;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--grey-400);
+      margin-bottom: 2rem;
+    }
+
+    #hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(5rem, 13vw, 13rem);
+      line-height: 0.86;
+      letter-spacing: -0.02em;
+      margin-bottom: 3rem;
+    }
+
+    #hero h1 em { font-style: italic; }
+
+    .hero-sub {
+      font-size: 0.58rem;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--grey-400);
+      margin-bottom: 3rem;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-ctas a {
+      font-size: 0.58rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 0.85rem 2rem;
+      transition: all 0.2s;
+    }
+
+    .hero-ctas a.btn-solid {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .hero-ctas a.btn-solid:hover { opacity: 0.7; }
+
+    .hero-ctas a.btn-outline {
+      border: 1px solid var(--black);
+      color: var(--black);
+    }
+
+    .hero-ctas a.btn-outline:hover {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    /* ---- ABOUT ---- */
+    #about .section-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.8fr;
+      gap: 8rem;
+      align-items: start;
+    }
+
+    .about-photo {
+      aspect-ratio: 3/4;
+      background: #f0f0f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--grey-400);
+      font-size: 0.55rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .about-right { padding-top: 0.5rem; }
+
+    .about-intro {
+      font-size: 1.45rem;
+      font-weight: 300;
+      line-height: 1.7;
+      margin-bottom: 3rem;
+      color: var(--black);
+    }
+
+    .traits-list {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--grey-400);
+      line-height: 2.4;
+    }
+
+    /* ---- BRANDS ---- */
+    #brands { overflow: hidden; }
+
+    #brands .section-inner { padding-bottom: 0; }
+
+    .brand-count {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      font-weight: 300;
+      margin-bottom: 4rem;
+    }
+
+    .marquee-wrapper {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      padding: 2.5rem 0;
+      border-top: 1px solid var(--grey-200);
+      border-bottom: 1px solid var(--grey-200);
+    }
+
+    .marquee-wrapper::before,
+    .marquee-wrapper::after {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 120px;
+      z-index: 2;
+    }
+
+    .marquee-wrapper::before {
+      left: 0;
+      background: linear-gradient(to right, var(--white), transparent);
+    }
+
+    .marquee-wrapper::after {
+      right: 0;
+      background: linear-gradient(to left, var(--white), transparent);
+    }
+
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marquee 28s linear infinite;
+      gap: 0;
+    }
+
+    .marquee-track:hover { animation-play-state: paused; }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    .logo-item {
+      width: 160px;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f4f4f4;
+      color: #c0c0c0;
+      font-size: 0.5rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      flex-shrink: 0;
+      margin-right: 1px;
+    }
+
+    /* ---- PORTFOLIO ---- */
+    #portfolio .section-inner { padding-bottom: 3rem; }
+
+    .portfolio-category { margin-bottom: 5rem; }
+
+    .portfolio-category-label {
+      font-size: 0.58rem;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--black);
+      margin-bottom: 1.5rem;
+    }
+
+    .video-carousel {
+      display: flex;
+      gap: 0.85rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+      padding-bottom: 0.5rem;
+    }
+
+    .video-carousel::-webkit-scrollbar { display: none; }
+
+    .video-card {
+      flex: 0 0 calc(25% - 0.65rem);
+      scroll-snap-align: start;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .video-thumb {
+      aspect-ratio: 9/16;
+      background: #f0f0f0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+      position: relative;
       overflow: hidden;
     }
 
-    /* Grain overlay */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 100;
-      opacity: 0.6;
-    }
+    .video-thumb:hover { background: #e5e5e5; }
 
-    .container {
-      height: 100vh;
-      display: grid;
-      grid-template-rows: 1fr auto;
-      padding: clamp(2rem, 6vw, 5rem);
-    }
-
-    /* Top horizontal rule */
-    .rule-top {
-      position: absolute;
-      top: clamp(2rem, 6vw, 5rem);
-      left: clamp(2rem, 6vw, 5rem);
-      right: clamp(2rem, 6vw, 5rem);
-      height: 1px;
-      background: var(--line);
-      transform-origin: left;
-      animation: expand 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
-    }
-
-    .main {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 2.5rem;
-      padding-top: 4rem;
-    }
-
-    .eyebrow {
-      font-family: 'Geist Mono', monospace;
-      font-size: clamp(0.65rem, 1.2vw, 0.75rem);
-      font-weight: 300;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--rust);
-      opacity: 0;
-      animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
-    }
-
-    h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 300;
-      font-size: clamp(3.5rem, 10vw, 9rem);
-      line-height: 0.92;
-      letter-spacing: -0.02em;
-      color: var(--ink);
-      opacity: 0;
-      animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.65s forwards;
-    }
-
-    h1 em {
-      font-style: italic;
-      color: var(--rust);
-    }
-
-    .status-block {
+    .play-btn {
+      width: 48px;
+      height: 48px;
+      border: 1.5px solid #b0b0b0;
+      border-radius: 50%;
       display: flex;
       align-items: center;
-      gap: 1.5rem;
-      opacity: 0;
-      animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.85s forwards;
+      justify-content: center;
+      transition: border-color 0.2s, background 0.2s;
     }
 
-    .dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--rust);
-      animation: pulse 2.5s ease-in-out infinite;
+    .video-thumb:hover .play-btn {
+      border-color: var(--black);
+      background: var(--black);
+    }
+
+    .play-btn svg {
+      width: 12px;
+      height: 12px;
+      fill: #b0b0b0;
+      margin-left: 2px;
+      transition: fill 0.2s;
+    }
+
+    .video-thumb:hover .play-btn svg { fill: var(--white); }
+
+    .video-type {
+      font-size: 0.5rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #b0b0b0;
+    }
+
+    .video-meta {
+      font-size: 0.65rem;
+      font-weight: 400;
+      color: var(--grey-400);
+    }
+
+    /* ---- SERVICES ---- */
+    #services {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    #services .section-label { color: rgba(255,255,255,0.3); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,0.07);
+    }
+
+    .service-card {
+      background: var(--black);
+      padding: 3rem 2.5rem;
+      display: flex;
+      flex-direction: column;
+      transition: background 0.25s;
+    }
+
+    .service-card:hover { background: #141414; }
+
+    .service-tier {
+      font-size: 0.52rem;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      margin-bottom: 1.5rem;
+    }
+
+    .service-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.4rem;
+      font-weight: 300;
+      line-height: 1;
+      margin-bottom: 2.5rem;
+    }
+
+    .service-deliverables {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 3rem;
+      flex: 1;
+    }
+
+    .service-deliverables li {
+      font-size: 0.75rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.6);
+      letter-spacing: 0.03em;
+      display: flex;
+      gap: 1rem;
+    }
+
+    .service-deliverables li::before {
+      content: '—';
+      color: rgba(255,255,255,0.2);
       flex-shrink: 0;
     }
 
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.4; transform: scale(0.7); }
+    .service-cta {
+      font-size: 0.58rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--white);
+      text-decoration: none;
+      align-self: flex-start;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+      padding-bottom: 0.25rem;
+      transition: border-color 0.2s;
     }
 
-    .status-text {
-      font-size: clamp(0.7rem, 1.3vw, 0.8rem);
+    .service-cta:hover { border-color: var(--white); }
+
+    /* ---- TESTIMONIALS ---- */
+    .testimonial-block { max-width: 860px; }
+
+    blockquote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.75rem, 3.5vw, 2.75rem);
       font-weight: 300;
-      letter-spacing: 0.1em;
-      color: var(--muted);
+      font-style: italic;
+      line-height: 1.5;
+      color: var(--black);
+      margin-bottom: 2rem;
     }
 
-    /* Bottom bar */
-    .footer {
+    .testimonial-attr {
+      font-size: 0.58rem;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--grey-400);
+    }
+
+    /* ---- CONTACT ---- */
+    #contact h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.5rem, 9vw, 9rem);
+      font-weight: 300;
+      line-height: 0.88;
+      letter-spacing: -0.02em;
+      margin-bottom: 3.5rem;
+    }
+
+    .contact-ctas {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-ctas a {
+      font-size: 0.58rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 0.85rem 2rem;
+      transition: all 0.2s;
+    }
+
+    .contact-ctas a.btn-solid {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .contact-ctas a.btn-solid:hover { opacity: 0.7; }
+
+    .contact-ctas a.btn-outline {
+      border: 1px solid var(--black);
+      color: var(--black);
+    }
+
+    .contact-ctas a.btn-outline:hover {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    /* ---- FOOTER ---- */
+    footer {
       display: flex;
       justify-content: space-between;
-      align-items: flex-end;
-      border-top: 1px solid var(--line);
-      padding-top: 1.5rem;
-      opacity: 0;
-      animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 1.1s forwards;
+      align-items: center;
+      padding: 1.75rem 3rem;
+      border-top: 1px solid var(--grey-200);
     }
 
-    .footer-domain {
-      font-size: clamp(0.65rem, 1vw, 0.72rem);
-      letter-spacing: 0.12em;
-      color: var(--muted);
-      text-transform: lowercase;
+    .footer-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.95rem;
+      font-weight: 400;
     }
 
-    .footer-year {
-      font-size: clamp(0.65rem, 1vw, 0.72rem);
-      letter-spacing: 0.08em;
-      color: var(--muted);
+    .footer-links {
+      display: flex;
+      gap: 2rem;
     }
 
-    /* Decorative vertical line */
-    .v-rule {
-      position: absolute;
-      right: clamp(2rem, 6vw, 5rem);
-      top: clamp(2rem, 6vw, 5rem);
-      bottom: clamp(2rem, 6vw, 5rem);
-      width: 1px;
-      background: var(--line);
-      transform-origin: top;
-      animation: expandV 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
-    }
-
-    /* Small label on vertical rule */
-    .v-label {
-      position: absolute;
-      right: calc(clamp(2rem, 6vw, 5rem) + 16px);
-      top: 50%;
-      transform: translateY(-50%) rotate(180deg);
-      writing-mode: vertical-rl;
-      font-size: 0.6rem;
+    .footer-links a {
+      font-size: 0.55rem;
+      font-weight: 600;
       letter-spacing: 0.2em;
-      color: var(--muted);
       text-transform: uppercase;
-      opacity: 0;
-      animation: fadeIn 1s ease 1.3s forwards;
+      text-decoration: none;
+      color: var(--grey-400);
+      transition: color 0.2s;
     }
 
-    @keyframes expand {
-      from { transform: scaleX(0); }
-      to { transform: scaleX(1); }
+    .footer-links a:hover { color: var(--black); }
+
+    .footer-copy {
+      font-size: 0.55rem;
+      letter-spacing: 0.1em;
+      color: var(--grey-400);
     }
 
-    @keyframes expandV {
-      from { transform: scaleY(0); }
-      to { transform: scaleY(1); }
+    /* ---- RESPONSIVE ---- */
+    @media (max-width: 960px) {
+      .video-card { flex: 0 0 calc(33.33% - 0.6rem); }
+      .services-grid { grid-template-columns: 1fr; }
+      #about .section-inner { grid-template-columns: 1fr; gap: 3rem; }
     }
 
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(16px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeIn {
-      to { opacity: 0.5; }
+    @media (max-width: 640px) {
+      nav { padding: 1.25rem 1.5rem; }
+      .section-inner { padding: 5rem 1.5rem; }
+      .hero-inner { padding: 7rem 1.5rem 4rem; }
+      footer { padding: 1.5rem; flex-direction: column; gap: 1.25rem; text-align: center; }
+      .video-card { flex: 0 0 calc(50% - 0.45rem); }
+      .nav-ctas a.btn-outline { display: none; }
     }
   </style>
 </head>
 <body>
-  <div class="rule-top"></div>
-  <div class="v-rule"></div>
-  <span class="v-label">Under Construction</span>
 
-  <div class="container">
-    <div class="main">
-      <p class="eyebrow">Coming Soon</p>
-      <h1>John Marc<br /><em>Dela Cruz</em></h1>
-      <div class="status-block">
-        <div class="dot"></div>
-        <p class="status-text">Something is being built here — check back soon.</p>
+  <!-- NAV -->
+  <nav>
+    <span class="nav-name">John Marc Dela Cruz</span>
+    <div class="nav-ctas">
+      <a href="mailto:jmarcdcruz@gmail.com" class="btn-outline">Email Me</a>
+      <a href="#contact" class="btn-solid">Book a Call</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-inner">
+      <span class="hero-tag">UGC Creator · Est. 2024</span>
+      <h1>John Marc<br><em>Dela Cruz</em></h1>
+      <p class="hero-sub">Fitness &amp; Wellness &nbsp;/&nbsp; Lifestyle &nbsp;/&nbsp; Fashion</p>
+      <div class="hero-ctas">
+        <a href="mailto:jmarcdcruz@gmail.com" class="btn-solid">Email Me</a>
+        <a href="#contact" class="btn-outline">Book a Call</a>
       </div>
     </div>
+  </section>
 
-    <footer class="footer">
-      <span class="footer-domain">johnmarcdelacruz.com</span>
-      <span class="footer-year">© 2026</span>
-    </footer>
-  </div>
+  <!-- WHO AM I -->
+  <section id="about">
+    <div class="section-inner">
+      <div class="about-photo">
+        <span>Photo Placeholder</span>
+      </div>
+      <div class="about-right">
+        <p class="section-label">Who Am I</p>
+        <p class="about-intro">I create scroll-stopping UGC content that actually converts. I specialize in authentic, high-quality short-form video for fitness, wellness, lifestyle, and fashion brands that want to connect with real audiences — not just rack up impressions.</p>
+        <p class="traits-list">
+          UGC Creator &nbsp;/&nbsp; Fitness Enthusiast &nbsp;/&nbsp; Style-Obsessed<br>
+          Wellness Advocate &nbsp;/&nbsp; Dog Parent &nbsp;/&nbsp; Coffee Addict
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRANDS -->
+  <section id="brands">
+    <div class="section-inner">
+      <p class="section-label">Brands I've Worked With</p>
+      <p class="brand-count">50+ brands &amp; counting</p>
+    </div>
+    <div class="marquee-wrapper">
+      <div class="marquee-track">
+        <!-- Set 1 -->
+        <div class="logo-item">Brand Logo</div>
+        <div class="logo-item">Brand Logo</div>
+        <div class="logo-item">Brand Logo</div>
+        <div class="logo-item">Brand Logo</div>
+        <div class="logo-item">Brand Logo</div>
+        <div class="logo-item">Brand Logo</div>
+        <div class="logo-item">Brand Logo</div>
+        <div class="logo-item">Brand Logo</div>
+        <div class="logo-item">Brand Logo</div>
+        <div class="logo-item">Brand Logo</div>
+        <!-- Set 2 (duplicate for seamless loop) -->
+        <div class="logo-item">Brand Logo</div>
+        <div class="logo-item">Brand Logo</div>
+        <div class="logo-item">Brand Logo</div>
+        <div class="logo-item">Brand Logo</div>
+        <div class="logo-item">Brand Logo</div>
+        <div class="logo-item">Brand Logo</div>
+        <div class="logo-item">Brand Logo</div>
+        <div class="logo-item">Brand Logo</div>
+        <div class="logo-item">Brand Logo</div>
+        <div class="logo-item">Brand Logo</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section id="portfolio">
+    <div class="section-inner">
+      <p class="section-label">My Work</p>
+
+      <div class="portfolio-category">
+        <p class="portfolio-category-label">Fitness &amp; Wellness</p>
+        <div class="video-carousel">
+          <div class="video-card">
+            <div class="video-thumb">
+              <div class="play-btn"><svg viewBox="0 0 10 10"><polygon points="3,2 8,5 3,8"/></svg></div>
+              <span class="video-type">Product Review</span>
+            </div>
+            <p class="video-meta">Supplement Brand</p>
+          </div>
+          <div class="video-card">
+            <div class="video-thumb">
+              <div class="play-btn"><svg viewBox="0 0 10 10"><polygon points="3,2 8,5 3,8"/></svg></div>
+              <span class="video-type">Unboxing</span>
+            </div>
+            <p class="video-meta">Gym Gear</p>
+          </div>
+          <div class="video-card">
+            <div class="video-thumb">
+              <div class="play-btn"><svg viewBox="0 0 10 10"><polygon points="3,2 8,5 3,8"/></svg></div>
+              <span class="video-type">Tutorial</span>
+            </div>
+            <p class="video-meta">Wellness App</p>
+          </div>
+          <div class="video-card">
+            <div class="video-thumb">
+              <div class="play-btn"><svg viewBox="0 0 10 10"><polygon points="3,2 8,5 3,8"/></svg></div>
+              <span class="video-type">Before &amp; After</span>
+            </div>
+            <p class="video-meta">Activewear</p>
+          </div>
+          <div class="video-card">
+            <div class="video-thumb">
+              <div class="play-btn"><svg viewBox="0 0 10 10"><polygon points="3,2 8,5 3,8"/></svg></div>
+              <span class="video-type">Get Ready With Me</span>
+            </div>
+            <p class="video-meta">Skincare Brand</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-category">
+        <p class="portfolio-category-label">Lifestyle</p>
+        <div class="video-carousel">
+          <div class="video-card">
+            <div class="video-thumb">
+              <div class="play-btn"><svg viewBox="0 0 10 10"><polygon points="3,2 8,5 3,8"/></svg></div>
+              <span class="video-type">Day in the Life</span>
+            </div>
+            <p class="video-meta">Home Brand</p>
+          </div>
+          <div class="video-card">
+            <div class="video-thumb">
+              <div class="play-btn"><svg viewBox="0 0 10 10"><polygon points="3,2 8,5 3,8"/></svg></div>
+              <span class="video-type">Product Review</span>
+            </div>
+            <p class="video-meta">Food &amp; Beverage</p>
+          </div>
+          <div class="video-card">
+            <div class="video-thumb">
+              <div class="play-btn"><svg viewBox="0 0 10 10"><polygon points="3,2 8,5 3,8"/></svg></div>
+              <span class="video-type">Haul</span>
+            </div>
+            <p class="video-meta">Home Decor</p>
+          </div>
+          <div class="video-card">
+            <div class="video-thumb">
+              <div class="play-btn"><svg viewBox="0 0 10 10"><polygon points="3,2 8,5 3,8"/></svg></div>
+              <span class="video-type">Testimonial</span>
+            </div>
+            <p class="video-meta">Tech Brand</p>
+          </div>
+          <div class="video-card">
+            <div class="video-thumb">
+              <div class="play-btn"><svg viewBox="0 0 10 10"><polygon points="3,2 8,5 3,8"/></svg></div>
+              <span class="video-type">Unboxing</span>
+            </div>
+            <p class="video-meta">Subscription Box</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-category">
+        <p class="portfolio-category-label">Fashion</p>
+        <div class="video-carousel">
+          <div class="video-card">
+            <div class="video-thumb">
+              <div class="play-btn"><svg viewBox="0 0 10 10"><polygon points="3,2 8,5 3,8"/></svg></div>
+              <span class="video-type">GRWM</span>
+            </div>
+            <p class="video-meta">Clothing Brand</p>
+          </div>
+          <div class="video-card">
+            <div class="video-thumb">
+              <div class="play-btn"><svg viewBox="0 0 10 10"><polygon points="3,2 8,5 3,8"/></svg></div>
+              <span class="video-type">Try-On Haul</span>
+            </div>
+            <p class="video-meta">Streetwear Brand</p>
+          </div>
+          <div class="video-card">
+            <div class="video-thumb">
+              <div class="play-btn"><svg viewBox="0 0 10 10"><polygon points="3,2 8,5 3,8"/></svg></div>
+              <span class="video-type">Outfit Review</span>
+            </div>
+            <p class="video-meta">Accessories Brand</p>
+          </div>
+          <div class="video-card">
+            <div class="video-thumb">
+              <div class="play-btn"><svg viewBox="0 0 10 10"><polygon points="3,2 8,5 3,8"/></svg></div>
+              <span class="video-type">Styling Tips</span>
+            </div>
+            <p class="video-meta">Footwear Brand</p>
+          </div>
+          <div class="video-card">
+            <div class="video-thumb">
+              <div class="play-btn"><svg viewBox="0 0 10 10"><polygon points="3,2 8,5 3,8"/></svg></div>
+              <span class="video-type">Unboxing</span>
+            </div>
+            <p class="video-meta">Luxury Brand</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="section-inner">
+      <p class="section-label">What I Offer</p>
+      <div class="services-grid">
+
+        <div class="service-card">
+          <p class="service-tier">Tier 01</p>
+          <p class="service-name">UGC<br>Video</p>
+          <ul class="service-deliverables">
+            <li>3 short-form videos (15–60s)</li>
+            <li>Raw + edited files delivered</li>
+            <li>1 round of revisions</li>
+            <li>7-day turnaround</li>
+          </ul>
+          <a href="#contact" class="service-cta">Inquire →</a>
+        </div>
+
+        <div class="service-card">
+          <p class="service-tier">Tier 02</p>
+          <p class="service-name">Content<br>Bundle</p>
+          <ul class="service-deliverables">
+            <li>6 short-form videos</li>
+            <li>5 lifestyle photos</li>
+            <li>Usage rights included</li>
+            <li>2 rounds of revisions</li>
+            <li>10-day turnaround</li>
+          </ul>
+          <a href="#contact" class="service-cta">Inquire →</a>
+        </div>
+
+        <div class="service-card">
+          <p class="service-tier">Tier 03</p>
+          <p class="service-name">Brand<br>Partnership</p>
+          <ul class="service-deliverables">
+            <li>Custom deliverables</li>
+            <li>Strategy alignment call</li>
+            <li>Full usage rights</li>
+            <li>Unlimited revisions</li>
+            <li>Priority turnaround</li>
+          </ul>
+          <a href="#contact" class="service-cta">Inquire →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials">
+    <div class="section-inner">
+      <p class="section-label">What Brands Say</p>
+      <div class="testimonial-block">
+        <blockquote>"John Marc delivered content that exceeded our expectations — authentic, on-brand, and genuinely engaging. Our ad performance improved significantly within the first week of using his content."</blockquote>
+        <p class="testimonial-attr">— Brand Manager, [Brand Placeholder]</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-inner">
+      <p class="section-label">Let's Work</p>
+      <h2>Ready to create<br>content that<br>converts?</h2>
+      <div class="contact-ctas">
+        <a href="mailto:jmarcdcruz@gmail.com" class="btn-solid">Email Me</a>
+        <a href="#" class="btn-outline">Book a Call</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-name">John Marc Dela Cruz</span>
+    <div class="footer-links">
+      <a href="mailto:jmarcdcruz@gmail.com">Email</a>
+      <a href="#">Instagram</a>
+      <a href="#">TikTok</a>
+    </div>
+    <span class="footer-copy">© 2026</span>
+  </footer>
+
 </body>
 </html>
