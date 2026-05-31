@@ -213,74 +213,6 @@
       line-height: 2.4;
     }
 
-    /* ---- BRANDS ---- */
-    #brands { overflow: hidden; }
-
-    #brands .section-inner { padding-bottom: 0; }
-
-    .brand-count {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.5rem, 5vw, 4.5rem);
-      font-weight: 300;
-      margin-bottom: 4rem;
-    }
-
-    .marquee-wrapper {
-      position: relative;
-      width: 100%;
-      overflow: hidden;
-      padding: 2.5rem 0;
-      border-top: 1px solid var(--grey-200);
-      border-bottom: 1px solid var(--grey-200);
-    }
-
-    .marquee-wrapper::before,
-    .marquee-wrapper::after {
-      content: '';
-      position: absolute;
-      top: 0; bottom: 0;
-      width: 120px;
-      z-index: 2;
-    }
-
-    .marquee-wrapper::before {
-      left: 0;
-      background: linear-gradient(to right, var(--white), transparent);
-    }
-
-    .marquee-wrapper::after {
-      right: 0;
-      background: linear-gradient(to left, var(--white), transparent);
-    }
-
-    .marquee-track {
-      display: flex;
-      width: max-content;
-      animation: marquee 28s linear infinite;
-      gap: 0;
-    }
-
-    .marquee-track:hover { animation-play-state: paused; }
-
-    @keyframes marquee {
-      from { transform: translateX(0); }
-      to { transform: translateX(-50%); }
-    }
-
-    .logo-item {
-      width: 160px;
-      height: 70px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #f4f4f4;
-      color: #c0c0c0;
-      font-size: 0.5rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      flex-shrink: 0;
-      margin-right: 1px;
-    }
 
     /* ---- PORTFOLIO ---- */
     #portfolio .section-inner { padding-bottom: 3rem; }
@@ -452,28 +384,7 @@
 
     .service-cta:hover { border-color: var(--white); }
 
-    /* ---- TESTIMONIALS ---- */
-    .testimonial-block { max-width: 860px; }
-
-    blockquote {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.75rem, 3.5vw, 2.75rem);
-      font-weight: 300;
-      font-style: italic;
-      line-height: 1.5;
-      color: var(--black);
-      margin-bottom: 2rem;
-    }
-
-    .testimonial-attr {
-      font-size: 0.58rem;
-      font-weight: 600;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--grey-400);
-    }
-
-    /* ---- CONTACT ---- */
+/* ---- CONTACT ---- */
     #contact h2 {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(3.5rem, 9vw, 9rem);
@@ -587,7 +498,7 @@
     <div class="hero-inner">
       <span class="hero-tag">UGC Creator · Est. 2024</span>
       <h1>John Marc<br><em>Dela Cruz</em></h1>
-      <p class="hero-sub">Fitness &amp; Wellness &nbsp;/&nbsp; Lifestyle &nbsp;/&nbsp; Fashion</p>
+      <p class="hero-sub">Fitness &amp; Wellness &nbsp;/&nbsp; Lifestyle &nbsp;/&nbsp; Tech &nbsp;/&nbsp; Fashion</p>
       <div class="hero-ctas">
         <a href="mailto:jmarcdcruz@gmail.com" class="btn-solid">Email Me</a>
         <a href="#contact" class="btn-outline">Book a Call</a>
@@ -603,48 +514,15 @@
       </div>
       <div class="about-right">
         <p class="section-label">Who Am I</p>
-        <p class="about-intro">I create scroll-stopping UGC content that actually converts. I specialize in authentic, high-quality short-form video for fitness, wellness, lifestyle, and fashion brands that want to connect with real audiences — not just rack up impressions.</p>
+        <p class="about-intro">I create scroll-stopping UGC content that actually converts. I specialize in authentic, high-quality short-form video for fitness, wellness, lifestyle, tech, and fashion brands that want to connect with real audiences — not just rack up impressions.</p>
         <p class="traits-list">
-          UGC Creator &nbsp;/&nbsp; Fitness Enthusiast &nbsp;/&nbsp; Style-Obsessed<br>
-          Wellness Advocate &nbsp;/&nbsp; Dog Parent &nbsp;/&nbsp; Coffee Addict
+          UGC Creator &nbsp;/&nbsp; Fitness &nbsp;/&nbsp; Tech Enthusiast &nbsp;/&nbsp; Style-Obsessed<br>
+          Wellness Advocate &nbsp;/&nbsp; Coffee Addict
         </p>
       </div>
     </div>
   </section>
 
-  <!-- BRANDS -->
-  <section id="brands">
-    <div class="section-inner">
-      <p class="section-label">Brands I've Worked With</p>
-      <p class="brand-count">50+ brands &amp; counting</p>
-    </div>
-    <div class="marquee-wrapper">
-      <div class="marquee-track">
-        <!-- Set 1 -->
-        <div class="logo-item">Brand Logo</div>
-        <div class="logo-item">Brand Logo</div>
-        <div class="logo-item">Brand Logo</div>
-        <div class="logo-item">Brand Logo</div>
-        <div class="logo-item">Brand Logo</div>
-        <div class="logo-item">Brand Logo</div>
-        <div class="logo-item">Brand Logo</div>
-        <div class="logo-item">Brand Logo</div>
-        <div class="logo-item">Brand Logo</div>
-        <div class="logo-item">Brand Logo</div>
-        <!-- Set 2 (duplicate for seamless loop) -->
-        <div class="logo-item">Brand Logo</div>
-        <div class="logo-item">Brand Logo</div>
-        <div class="logo-item">Brand Logo</div>
-        <div class="logo-item">Brand Logo</div>
-        <div class="logo-item">Brand Logo</div>
-        <div class="logo-item">Brand Logo</div>
-        <div class="logo-item">Brand Logo</div>
-        <div class="logo-item">Brand Logo</div>
-        <div class="logo-item">Brand Logo</div>
-        <div class="logo-item">Brand Logo</div>
-      </div>
-    </div>
-  </section>
 
   <!-- PORTFOLIO -->
   <section id="portfolio">
@@ -825,18 +703,8 @@
     </div>
   </section>
 
-  <!-- TESTIMONIALS -->
-  <section id="testimonials">
-    <div class="section-inner">
-      <p class="section-label">What Brands Say</p>
-      <div class="testimonial-block">
-        <blockquote>"John Marc delivered content that exceeded our expectations — authentic, on-brand, and genuinely engaging. Our ad performance improved significantly within the first week of using his content."</blockquote>
-        <p class="testimonial-attr">— Brand Manager, [Brand Placeholder]</p>
-      </div>
-    </div>
-  </section>
 
-  <!-- CONTACT -->
+<!-- CONTACT -->
   <section id="contact">
     <div class="section-inner">
       <p class="section-label">Let's Work</p>
