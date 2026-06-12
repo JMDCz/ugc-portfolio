@@ -11,18 +11,21 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --white: #ffffff;
-      --black: #0a0a0a;
-      --grey-200: #e8e8e8;
-      --grey-400: #9a9a9a;
+      --bg:      #f7f6f3;
+      --surface: #ffffff;
+      --border:  #e4e2db;
+      --text-1:  #1a1916;
+      --text-2:  #5c5a54;
+      --text-3:  #8f8d87;
       --max-width: 1200px;
     }
 
     html { scroll-behavior: smooth; }
 
     body {
-      background: var(--white);
-      color: var(--black);
+      background: linear-gradient(to bottom, #e8e2d6 0%, #ffffff 78%);
+      background-attachment: fixed;
+      color: var(--text-1);
       font-family: 'Inter', sans-serif;
       font-weight: 300;
       -webkit-font-smoothing: antialiased;
@@ -36,13 +39,42 @@
     }
 
     .section-label {
-      font-size: 0.58rem;
+      font-size: 10px;
       font-weight: 600;
-      letter-spacing: 0.3em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--grey-400);
-      margin-bottom: 3.5rem;
+      color: var(--text-3);
+      margin-bottom: 2rem;
     }
+
+    .btn-solid {
+      background: var(--text-1);
+      color: var(--surface);
+      border-radius: 99px;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      padding: 0.7rem 1.5rem;
+      transition: opacity 0.2s;
+      display: inline-block;
+    }
+    .btn-solid:hover { opacity: 0.75; }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text-1);
+      border: 1px solid var(--border);
+      border-radius: 99px;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      padding: 0.7rem 1.5rem;
+      transition: border-color 0.2s, background 0.2s;
+      display: inline-block;
+    }
+    .btn-outline:hover { border-color: var(--text-1); background: var(--text-1); color: var(--surface); }
 
     /* ---- NAV ---- */
     nav {
@@ -52,56 +84,27 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.5rem 3rem;
-      background: rgba(255,255,255,0.95);
+      padding: 1.25rem 3rem;
+      background: rgba(232, 226, 214, 0.45);
       backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
     }
 
     .nav-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1rem;
-      font-weight: 400;
-      letter-spacing: 0.06em;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-1);
+      letter-spacing: 0.01em;
     }
 
-    .nav-ctas {
-      display: flex;
-      gap: 0.75rem;
-      align-items: center;
-    }
-
-    .nav-ctas a {
-      font-size: 0.58rem;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      text-decoration: none;
-      padding: 0.6rem 1.25rem;
-      transition: all 0.2s;
-    }
-
-    .nav-ctas a.btn-outline {
-      color: var(--black);
-      border: 1px solid var(--black);
-    }
-
-    .nav-ctas a.btn-outline:hover {
-      background: var(--black);
-      color: var(--white);
-    }
-
-    .nav-ctas a.btn-solid {
-      background: var(--black);
-      color: var(--white);
-    }
-
-    .nav-ctas a.btn-solid:hover { opacity: 0.7; }
+    .nav-ctas { display: flex; gap: 0.6rem; align-items: center; }
 
     /* ---- HERO ---- */
     #hero {
       min-height: 100vh;
       display: flex;
       align-items: center;
+      background: var(--bg);
     }
 
     .hero-inner {
@@ -113,11 +116,11 @@
 
     .hero-tag {
       display: inline-block;
-      font-size: 0.58rem;
-      font-weight: 600;
-      letter-spacing: 0.3em;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--grey-400);
+      color: var(--text-3);
       margin-bottom: 2rem;
     }
 
@@ -127,105 +130,36 @@
       font-size: clamp(5rem, 13vw, 13rem);
       line-height: 0.86;
       letter-spacing: -0.02em;
-      margin-bottom: 3rem;
+      margin-bottom: 2.5rem;
+      color: var(--text-1);
     }
 
     #hero h1 em { font-style: italic; }
 
     .hero-sub {
-      font-size: 0.58rem;
-      font-weight: 600;
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
-      color: var(--grey-400);
-      margin-bottom: 3rem;
-    }
-
-    .hero-ctas {
-      display: flex;
-      gap: 0.75rem;
-      flex-wrap: wrap;
-    }
-
-    .hero-ctas a {
-      font-size: 0.58rem;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      text-decoration: none;
-      padding: 0.85rem 2rem;
-      transition: all 0.2s;
-    }
-
-    .hero-ctas a.btn-solid {
-      background: var(--black);
-      color: var(--white);
-    }
-
-    .hero-ctas a.btn-solid:hover { opacity: 0.7; }
-
-    .hero-ctas a.btn-outline {
-      border: 1px solid var(--black);
-      color: var(--black);
-    }
-
-    .hero-ctas a.btn-outline:hover {
-      background: var(--black);
-      color: var(--white);
-    }
-
-    /* ---- ABOUT ---- */
-    #about .section-inner {
-      display: grid;
-      grid-template-columns: 1fr 1.8fr;
-      gap: 8rem;
-      align-items: start;
-    }
-
-    .about-photo {
-      aspect-ratio: 3/4;
-      background: #f0f0f0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--grey-400);
-      font-size: 0.55rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-    }
-
-    .about-right { padding-top: 0.5rem; }
-
-    .about-intro {
-      font-size: 1.45rem;
-      font-weight: 300;
-      line-height: 1.7;
-      margin-bottom: 3rem;
-      color: var(--black);
-    }
-
-    .traits-list {
-      font-size: 0.7rem;
+      font-size: 11px;
       font-weight: 500;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--grey-400);
-      line-height: 2.4;
+      color: var(--text-3);
+      margin-bottom: 2.5rem;
     }
 
+    .hero-ctas { display: flex; gap: 0.6rem; flex-wrap: wrap; }
 
     /* ---- PORTFOLIO ---- */
+    #portfolio { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
     #portfolio .section-inner { padding-bottom: 3rem; }
 
-    .portfolio-category { margin-bottom: 5rem; }
+    .portfolio-category { margin-bottom: 4rem; }
 
     .portfolio-category-label {
-      font-size: 0.58rem;
+      font-size: 10px;
       font-weight: 600;
-      letter-spacing: 0.28em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--black);
-      margin-bottom: 1.5rem;
+      color: var(--text-3);
+      margin-bottom: 1.25rem;
     }
 
     .video-carousel {
@@ -250,24 +184,26 @@
 
     .video-thumb {
       aspect-ratio: 9/16;
-      background: #f0f0f0;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       gap: 1rem;
       cursor: pointer;
-      transition: background 0.2s;
+      transition: border-color 0.2s;
       position: relative;
       overflow: hidden;
     }
 
-    .video-thumb:hover { background: #e5e5e5; }
+    .video-thumb:hover { border-color: var(--text-1); }
 
     .play-btn {
-      width: 48px;
-      height: 48px;
-      border: 1.5px solid #b0b0b0;
+      width: 44px;
+      height: 44px;
+      border: 1.5px solid var(--border);
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -275,210 +211,169 @@
       transition: border-color 0.2s, background 0.2s;
     }
 
-    .video-thumb:hover .play-btn {
-      border-color: var(--black);
-      background: var(--black);
-    }
+    .video-thumb:hover .play-btn { border-color: var(--text-1); background: var(--text-1); }
 
     .play-btn svg {
-      width: 12px;
-      height: 12px;
-      fill: #b0b0b0;
+      width: 12px; height: 12px;
+      fill: var(--text-3);
       margin-left: 2px;
       transition: fill 0.2s;
     }
 
-    .video-thumb:hover .play-btn svg { fill: var(--white); }
+    .video-thumb:hover .play-btn svg { fill: var(--surface); }
 
-    .video-type {
-      font-size: 0.5rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: #b0b0b0;
+    .video-type { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-3); }
+
+    .video-meta { font-size: 11px; font-weight: 400; color: var(--text-2); }
+
+    /* ---- SERVICES (rate card) ---- */
+    #services { background: transparent; }
+    #services .section-label { margin-bottom: 1.25rem; }
+
+    .rc-subsection { margin-bottom: 3rem; }
+    .rc-subsection-label {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--text-3); margin-bottom: 14px;
     }
 
-    .video-meta {
-      font-size: 0.65rem;
-      font-weight: 400;
-      color: var(--grey-400);
+    .rc-deliverable-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+
+    .rc-d-card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 1.1rem 1rem; }
+    .rc-d-card.rc-featured { border-color: var(--text-1); border-width: 1.5px; }
+
+    .rc-badge {
+      display: inline-block; font-size: 10px; font-weight: 500;
+      background: #f0ede5; color: var(--text-2); padding: 2px 7px;
+      border-radius: 99px; margin-bottom: 10px; letter-spacing: 0.02em;
     }
+    .rc-d-icon { font-size: 18px; margin-bottom: 10px; display: block; }
+    .rc-d-title { font-size: 13px; font-weight: 500; line-height: 1.3; margin-bottom: 4px; color: var(--text-1); }
+    .rc-d-desc { font-size: 11px; color: var(--text-3); line-height: 1.5; margin-bottom: 14px; }
+    .rc-d-price { font-size: 22px; font-weight: 600; letter-spacing: -0.02em; color: var(--text-1); }
+    .rc-d-unit { font-size: 11px; color: var(--text-3); margin-top: 1px; }
 
-    /* ---- SERVICES ---- */
-    #services {
-      background: var(--black);
-      color: var(--white);
+    .rc-pkg-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+
+    .rc-pkg-card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 1.25rem; }
+    .rc-pkg-card.rc-popular { border-color: var(--text-1); border-width: 1.5px; }
+
+    .rc-pkg-top { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 4px; }
+    .rc-pkg-name { font-size: 15px; font-weight: 500; color: var(--text-1); }
+    .rc-pkg-tag { font-size: 10px; font-weight: 500; background: var(--text-1); color: var(--surface); padding: 3px 8px; border-radius: 99px; }
+    .rc-pkg-price { font-size: 26px; font-weight: 600; letter-spacing: -0.03em; margin: 8px 0 2px; color: var(--text-1); }
+    .rc-pkg-save { font-size: 11px; color: #2d6a4f; font-weight: 500; margin-bottom: 16px; }
+    .rc-pkg-divider { border: none; border-top: 1px solid var(--border); margin-bottom: 14px; }
+    .rc-pkg-list { list-style: none; }
+    .rc-pkg-list li { font-size: 12px; color: var(--text-2); padding: 3px 0; display: flex; align-items: flex-start; gap: 7px; line-height: 1.5; }
+    .rc-pkg-list li::before { content: '✓'; font-size: 11px; color: #2d6a4f; flex-shrink: 0; margin-top: 1px; font-weight: 600; }
+
+    .rc-footer-note {
+      background: var(--surface); border: 1px solid var(--border);
+      border-left: 3px solid var(--text-1); border-radius: 0 10px 10px 0;
+      padding: 14px 18px; font-size: 12px; color: var(--text-2); line-height: 1.8;
     }
+    .rc-footer-note strong { font-weight: 500; color: var(--text-1); }
 
-    #services .section-label { color: rgba(255,255,255,0.3); }
+    /* ---- ABOUT ---- */
+    #about { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
 
-    .services-grid {
+    #about .section-inner {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: rgba(255,255,255,0.07);
+      grid-template-columns: 1fr 1.8fr;
+      gap: 8rem;
+      align-items: start;
     }
 
-    .service-card {
-      background: var(--black);
-      padding: 3rem 2.5rem;
+    .about-photo {
+      aspect-ratio: 3/4;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
       display: flex;
-      flex-direction: column;
-      transition: background 0.25s;
-    }
-
-    .service-card:hover { background: #141414; }
-
-    .service-tier {
-      font-size: 0.52rem;
-      font-weight: 600;
-      letter-spacing: 0.3em;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-3);
+      font-size: 10px;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.3);
-      margin-bottom: 1.5rem;
     }
 
-    .service-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2.4rem;
+    .about-right { padding-top: 0.5rem; }
+
+    .about-intro {
+      font-size: 1.35rem;
       font-weight: 300;
-      line-height: 1;
+      line-height: 1.7;
       margin-bottom: 2.5rem;
+      color: var(--text-1);
     }
 
-    .service-deliverables {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      margin-bottom: 3rem;
-      flex: 1;
-    }
-
-    .service-deliverables li {
-      font-size: 0.75rem;
-      font-weight: 300;
-      color: rgba(255,255,255,0.6);
-      letter-spacing: 0.03em;
-      display: flex;
-      gap: 1rem;
-    }
-
-    .service-deliverables li::before {
-      content: '—';
-      color: rgba(255,255,255,0.2);
-      flex-shrink: 0;
-    }
-
-    .service-cta {
-      font-size: 0.58rem;
-      font-weight: 600;
-      letter-spacing: 0.22em;
+    .traits-list {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--white);
-      text-decoration: none;
-      align-self: flex-start;
-      border-bottom: 1px solid rgba(255,255,255,0.2);
-      padding-bottom: 0.25rem;
-      transition: border-color 0.2s;
+      color: var(--text-3);
+      line-height: 2.4;
     }
 
-    .service-cta:hover { border-color: var(--white); }
+    /* ---- CONTACT ---- */
+    #contact { background: transparent; }
 
-/* ---- CONTACT ---- */
     #contact h2 {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(3.5rem, 9vw, 9rem);
       font-weight: 300;
       line-height: 0.88;
       letter-spacing: -0.02em;
-      margin-bottom: 3.5rem;
+      margin-bottom: 3rem;
+      color: var(--text-1);
     }
 
-    .contact-ctas {
-      display: flex;
-      gap: 0.75rem;
-      flex-wrap: wrap;
-    }
-
-    .contact-ctas a {
-      font-size: 0.58rem;
-      font-weight: 600;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      text-decoration: none;
-      padding: 0.85rem 2rem;
-      transition: all 0.2s;
-    }
-
-    .contact-ctas a.btn-solid {
-      background: var(--black);
-      color: var(--white);
-    }
-
-    .contact-ctas a.btn-solid:hover { opacity: 0.7; }
-
-    .contact-ctas a.btn-outline {
-      border: 1px solid var(--black);
-      color: var(--black);
-    }
-
-    .contact-ctas a.btn-outline:hover {
-      background: var(--black);
-      color: var(--white);
-    }
+    .contact-ctas { display: flex; gap: 0.6rem; flex-wrap: wrap; }
 
     /* ---- FOOTER ---- */
     footer {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.75rem 3rem;
-      border-top: 1px solid var(--grey-200);
+      padding: 1.5rem 3rem;
+      border-top: 1px solid var(--border);
+      background: transparent;
     }
 
-    .footer-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 0.95rem;
-      font-weight: 400;
-    }
+    .footer-name { font-size: 13px; font-weight: 500; color: var(--text-1); }
 
-    .footer-links {
-      display: flex;
-      gap: 2rem;
-    }
+    .footer-links { display: flex; gap: 2rem; }
 
     .footer-links a {
-      font-size: 0.55rem;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
       text-decoration: none;
-      color: var(--grey-400);
+      color: var(--text-3);
       transition: color 0.2s;
     }
 
-    .footer-links a:hover { color: var(--black); }
+    .footer-links a:hover { color: var(--text-1); }
 
-    .footer-copy {
-      font-size: 0.55rem;
-      letter-spacing: 0.1em;
-      color: var(--grey-400);
-    }
+    .footer-copy { font-size: 11px; color: var(--text-3); }
 
     /* ---- RESPONSIVE ---- */
     @media (max-width: 960px) {
       .video-card { flex: 0 0 calc(33.33% - 0.6rem); }
-      .services-grid { grid-template-columns: 1fr; }
       #about .section-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .rc-deliverable-grid { grid-template-columns: repeat(3, 1fr); }
     }
 
     @media (max-width: 640px) {
-      nav { padding: 1.25rem 1.5rem; }
+      nav { padding: 1rem 1.5rem; }
       .section-inner { padding: 5rem 1.5rem; }
       .hero-inner { padding: 7rem 1.5rem 4rem; }
-      footer { padding: 1.5rem; flex-direction: column; gap: 1.25rem; text-align: center; }
+      footer { padding: 1.25rem 1.5rem; flex-direction: column; gap: 1rem; text-align: center; }
       .video-card { flex: 0 0 calc(50% - 0.45rem); }
-      .nav-ctas a.btn-outline { display: none; }
+      .rc-deliverable-grid { grid-template-columns: repeat(2, 1fr); }
+      .rc-pkg-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -488,7 +383,7 @@
   <nav>
     <span class="nav-name">John Marc Dela Cruz</span>
     <div class="nav-ctas">
-      <a href="mailto:jmarcdcruz@gmail.com" class="btn-outline">Email Me</a>
+      <a href="mailto:jmarcdcruz@gmail.com" class="btn-outline">Email</a>
       <a href="#contact" class="btn-solid">Book a Call</a>
     </div>
   </nav>
@@ -501,7 +396,7 @@
       <p class="hero-sub">Fitness &amp; Wellness &nbsp;/&nbsp; Lifestyle &nbsp;/&nbsp; Tech &nbsp;/&nbsp; Fashion</p>
       <div class="hero-ctas">
         <a href="mailto:jmarcdcruz@gmail.com" class="btn-solid">Email Me</a>
-        <a href="#contact" class="btn-outline">Book a Call</a>
+        <a href="#contact" class="btn-outline">View Packages</a>
       </div>
     </div>
   </section>
@@ -638,47 +533,102 @@
   <section id="services">
     <div class="section-inner">
       <p class="section-label">What I Offer</p>
-      <div class="services-grid">
 
-        <div class="service-card">
-          <p class="service-tier">Tier 01</p>
-          <p class="service-name">UGC<br>Video</p>
-          <ul class="service-deliverables">
-            <li>3 short-form videos (15–60s)</li>
-            <li>Raw + edited files delivered</li>
-            <li>1 round of revisions</li>
-            <li>7-day turnaround</li>
-          </ul>
-          <a href="#contact" class="service-cta">Inquire →</a>
+      <!-- Individual deliverables -->
+      <div class="rc-subsection">
+        <p class="rc-subsection-label">Individual deliverables</p>
+        <div class="rc-deliverable-grid">
+          <div class="rc-d-card">
+            <span class="rc-d-icon">📱</span>
+            <p class="rc-d-title">Short-form video</p>
+            <p class="rc-d-desc">15–30 sec · TikTok/Reels style · edited with captions</p>
+            <p class="rc-d-price">$125</p>
+            <p class="rc-d-unit">per video</p>
+          </div>
+          <div class="rc-d-card rc-featured">
+            <span class="rc-badge">Most requested</span>
+            <p class="rc-d-title">Mid-form video</p>
+            <p class="rc-d-desc">31–60 sec · demo, unboxing, or testimonial</p>
+            <p class="rc-d-price">$175</p>
+            <p class="rc-d-unit">per video</p>
+          </div>
+          <div class="rc-d-card">
+            <span class="rc-d-icon">🎬</span>
+            <p class="rc-d-title">Long-form video</p>
+            <p class="rc-d-desc">61–90 sec · tutorial, review, or storytelling</p>
+            <p class="rc-d-price">$250</p>
+            <p class="rc-d-unit">per video</p>
+          </div>
+          <div class="rc-d-card">
+            <span class="rc-d-icon">📷</span>
+            <p class="rc-d-title">Static photo</p>
+            <p class="rc-d-desc">Lifestyle or product · edited &amp; retouched</p>
+            <p class="rc-d-price">$50</p>
+            <p class="rc-d-unit">per image</p>
+          </div>
+          <div class="rc-d-card">
+            <span class="rc-d-icon">🖼</span>
+            <p class="rc-d-title">Photo set</p>
+            <p class="rc-d-desc">5 images · varied angles/scenes, single shoot</p>
+            <p class="rc-d-price">$200</p>
+            <p class="rc-d-unit">per set</p>
+          </div>
         </div>
-
-        <div class="service-card">
-          <p class="service-tier">Tier 02</p>
-          <p class="service-name">Content<br>Bundle</p>
-          <ul class="service-deliverables">
-            <li>6 short-form videos</li>
-            <li>5 lifestyle photos</li>
-            <li>Usage rights included</li>
-            <li>2 rounds of revisions</li>
-            <li>10-day turnaround</li>
-          </ul>
-          <a href="#contact" class="service-cta">Inquire →</a>
-        </div>
-
-        <div class="service-card">
-          <p class="service-tier">Tier 03</p>
-          <p class="service-name">Brand<br>Partnership</p>
-          <ul class="service-deliverables">
-            <li>Custom deliverables</li>
-            <li>Strategy alignment call</li>
-            <li>Full usage rights</li>
-            <li>Unlimited revisions</li>
-            <li>Priority turnaround</li>
-          </ul>
-          <a href="#contact" class="service-cta">Inquire →</a>
-        </div>
-
       </div>
+
+      <!-- Bundles & packages -->
+      <div class="rc-subsection">
+        <p class="rc-subsection-label">Bundles &amp; packages</p>
+        <div class="rc-pkg-grid">
+          <div class="rc-pkg-card">
+            <div class="rc-pkg-top"><span class="rc-pkg-name">Starter</span></div>
+            <p class="rc-pkg-price">$300</p>
+            <p class="rc-pkg-save">Save ~$25 vs. individual</p>
+            <hr class="rc-pkg-divider" />
+            <ul class="rc-pkg-list">
+              <li>2 × short-form videos (30 sec)</li>
+              <li>3 lifestyle photos</li>
+              <li>1 revision round each</li>
+              <li>Organic usage included</li>
+            </ul>
+          </div>
+          <div class="rc-pkg-card rc-popular">
+            <div class="rc-pkg-top">
+              <span class="rc-pkg-name">Brand essentials</span>
+              <span class="rc-pkg-tag">Popular</span>
+            </div>
+            <p class="rc-pkg-price">$550</p>
+            <p class="rc-pkg-save">Save ~$75 vs. individual</p>
+            <hr class="rc-pkg-divider" />
+            <ul class="rc-pkg-list">
+              <li>2 × mid-form videos (60 sec)</li>
+              <li>1 × short-form hook video</li>
+              <li>5-image photo set</li>
+              <li>2 revision rounds</li>
+              <li>Organic usage included</li>
+            </ul>
+          </div>
+          <div class="rc-pkg-card">
+            <div class="rc-pkg-top"><span class="rc-pkg-name">Content month</span></div>
+            <p class="rc-pkg-price">$900</p>
+            <p class="rc-pkg-save">Save ~$150 vs. individual</p>
+            <hr class="rc-pkg-divider" />
+            <ul class="rc-pkg-list">
+              <li>4 × short-form videos</li>
+              <li>2 × mid-form videos</li>
+              <li>1 × long-form video</li>
+              <li>10-image photo set</li>
+              <li>3 revision rounds</li>
+              <li>Organic usage included</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="rc-footer-note">
+        <strong>All rates include organic usage</strong> (brand's own social channels). Usage rights for paid ads or boosted content are available on request. Standard turnaround is 5–7 business days. Custom scopes and retainer arrangements welcome.
+      </div>
+
     </div>
   </section>
 
@@ -709,6 +659,7 @@
         <a href="mailto:jmarcdcruz@gmail.com" class="btn-solid">Email Me</a>
         <a href="#" class="btn-outline">Book a Call</a>
       </div>
+
     </div>
   </section>
 
