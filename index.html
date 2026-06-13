@@ -38,11 +38,11 @@
     }
 
     .section-label {
-      font-size: 10px;
+      font-size: 12px;
       font-weight: 600;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--text-3);
+      color: var(--text-1);
       margin-bottom: 2rem;
     }
 
@@ -165,12 +165,15 @@
       gap: 0.85rem;
       overflow-x: auto;
       scroll-snap-type: x mandatory;
-      -ms-overflow-style: none;
-      scrollbar-width: none;
+      scrollbar-width: thin;
+      scrollbar-color: var(--border) transparent;
       padding-bottom: 0.5rem;
     }
 
-    .video-carousel::-webkit-scrollbar { display: none; }
+    .video-carousel::-webkit-scrollbar { height: 4px; }
+    .video-carousel::-webkit-scrollbar-track { background: transparent; }
+    .video-carousel::-webkit-scrollbar-thumb { background: var(--border); border-radius: 99px; }
+    .video-carousel::-webkit-scrollbar-thumb:hover { background: var(--text-3); }
 
     .video-card {
       flex: 0 0 calc(25% - 0.65rem);
@@ -394,7 +397,7 @@
       <p class="hero-sub">Fitness &amp; Wellness &nbsp;/&nbsp; Lifestyle &nbsp;/&nbsp; Tech &nbsp;/&nbsp; Fashion</p>
       <div class="hero-ctas">
         <a href="mailto:jmarcdcruz@gmail.com" class="btn-solid">Email Me</a>
-        <a href="#contact" class="btn-outline">View Packages</a>
+        <a href="#services" class="btn-outline">View Packages</a>
       </div>
     </div>
   </section>
@@ -405,19 +408,25 @@
       <p class="section-label">My Work</p>
 
       <div class="portfolio-category">
-        <p class="portfolio-category-label">Fitness &amp; Wellness</p>
+        <p class="portfolio-category-label">UGC Examples</p>
         <div class="video-carousel">
           <div class="video-card">
             <div class="video-thumb">
               <iframe src="https://player.vimeo.com/video/1199558843?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
             </div>
-            <p class="video-meta">Theragun UGC Example</p>
+            <p class="video-meta">Problem-Solution: Theragun Example</p>
           </div>
           <div class="video-card">
             <div class="video-thumb">
               <iframe src="https://player.vimeo.com/video/1199559111?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
             </div>
-            <p class="video-meta">Protein Powder UGC Example</p>
+            <p class="video-meta">B-Roll: Protein Powder Example</p>
+          </div>
+          <div class="video-card">
+            <div class="video-thumb">
+              <iframe src="https://player.vimeo.com/video/1199880600?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+            </div>
+            <p class="video-meta">Product Review: DJI Mic Mini 2 Example</p>
           </div>
           <div class="video-card">
             <div class="video-thumb">
@@ -439,87 +448,6 @@
               <span class="video-type">Get Ready With Me</span>
             </div>
             <p class="video-meta">Skincare Brand</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="portfolio-category">
-        <p class="portfolio-category-label">Lifestyle</p>
-        <div class="video-carousel">
-          <div class="video-card">
-            <div class="video-thumb">
-              <iframe src="https://player.vimeo.com/video/1199880600?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
-            </div>
-            <p class="video-meta">DJI Mic Mini 2 UGC Example</p>
-          </div>
-          <div class="video-card">
-            <div class="video-thumb">
-              <div class="play-btn"><svg viewBox="0 0 10 10"><polygon points="3,2 8,5 3,8"/></svg></div>
-              <span class="video-type">Product Review</span>
-            </div>
-            <p class="video-meta">Food &amp; Beverage</p>
-          </div>
-          <div class="video-card">
-            <div class="video-thumb">
-              <div class="play-btn"><svg viewBox="0 0 10 10"><polygon points="3,2 8,5 3,8"/></svg></div>
-              <span class="video-type">Haul</span>
-            </div>
-            <p class="video-meta">Home Decor</p>
-          </div>
-          <div class="video-card">
-            <div class="video-thumb">
-              <div class="play-btn"><svg viewBox="0 0 10 10"><polygon points="3,2 8,5 3,8"/></svg></div>
-              <span class="video-type">Testimonial</span>
-            </div>
-            <p class="video-meta">Tech Brand</p>
-          </div>
-          <div class="video-card">
-            <div class="video-thumb">
-              <div class="play-btn"><svg viewBox="0 0 10 10"><polygon points="3,2 8,5 3,8"/></svg></div>
-              <span class="video-type">Unboxing</span>
-            </div>
-            <p class="video-meta">Subscription Box</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="portfolio-category">
-        <p class="portfolio-category-label">Fashion</p>
-        <div class="video-carousel">
-          <div class="video-card">
-            <div class="video-thumb">
-              <div class="play-btn"><svg viewBox="0 0 10 10"><polygon points="3,2 8,5 3,8"/></svg></div>
-              <span class="video-type">GRWM</span>
-            </div>
-            <p class="video-meta">Clothing Brand</p>
-          </div>
-          <div class="video-card">
-            <div class="video-thumb">
-              <div class="play-btn"><svg viewBox="0 0 10 10"><polygon points="3,2 8,5 3,8"/></svg></div>
-              <span class="video-type">Try-On Haul</span>
-            </div>
-            <p class="video-meta">Streetwear Brand</p>
-          </div>
-          <div class="video-card">
-            <div class="video-thumb">
-              <div class="play-btn"><svg viewBox="0 0 10 10"><polygon points="3,2 8,5 3,8"/></svg></div>
-              <span class="video-type">Outfit Review</span>
-            </div>
-            <p class="video-meta">Accessories Brand</p>
-          </div>
-          <div class="video-card">
-            <div class="video-thumb">
-              <div class="play-btn"><svg viewBox="0 0 10 10"><polygon points="3,2 8,5 3,8"/></svg></div>
-              <span class="video-type">Styling Tips</span>
-            </div>
-            <p class="video-meta">Footwear Brand</p>
-          </div>
-          <div class="video-card">
-            <div class="video-thumb">
-              <div class="play-btn"><svg viewBox="0 0 10 10"><polygon points="3,2 8,5 3,8"/></svg></div>
-              <span class="video-type">Unboxing</span>
-            </div>
-            <p class="video-meta">Luxury Brand</p>
           </div>
         </div>
       </div>
