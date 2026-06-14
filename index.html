@@ -290,13 +290,14 @@
       background: var(--bg);
       border: 1px solid var(--border);
       border-radius: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--text-3);
-      font-size: 10px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
+      overflow: hidden;
+    }
+
+    .about-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     .about-right { padding-top: 0.5rem; }
@@ -308,6 +309,8 @@
       margin-bottom: 2.5rem;
       color: var(--text-1);
     }
+
+    .about-intro strong { font-weight: 600; }
 
     .traits-list {
       font-size: 11px;
@@ -563,11 +566,11 @@
   <section id="about">
     <div class="section-inner">
       <div class="about-photo">
-        <span>Photo Placeholder</span>
+        <img src="images/headshot.png" alt="John Marc Dela Cruz" />
       </div>
       <div class="about-right">
         <p class="section-label">Who Am I</p>
-        <p class="about-intro">I create scroll-stopping UGC content that actually converts. I specialize in authentic, high-quality short-form video for fitness, wellness, lifestyle, tech, and fashion brands that want to connect with real audiences — not just rack up impressions.</p>
+        <p class="about-intro"><strong>Authentic content. Real results.</strong> I'm a UGC creator specializing in short-form video for fitness, wellness, tech, and lifestyle brands. My content is built to stop the scroll, build trust, and drive action — because impressions don't pay the bills, conversions do.</p>
         <p class="traits-list">
           UGC Creator &nbsp;/&nbsp; Fitness &nbsp;/&nbsp; Tech Enthusiast &nbsp;/&nbsp; Style-Obsessed<br>
           Wellness Advocate &nbsp;/&nbsp; Coffee Addict
