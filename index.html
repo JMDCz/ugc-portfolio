@@ -89,12 +89,29 @@
       border-bottom: 1px solid var(--border);
     }
 
+    .nav-identity {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
     .nav-name {
       font-size: 13px;
       font-weight: 500;
       color: var(--text-1);
       letter-spacing: 0.01em;
     }
+
+    .nav-email {
+      font-size: 11px;
+      font-weight: 400;
+      color: var(--text-3);
+      letter-spacing: 0.01em;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-email:hover { color: var(--text-1); }
 
     .nav-ctas { display: flex; gap: 0.6rem; align-items: center; }
 
@@ -385,9 +402,12 @@
 
   <!-- NAV -->
   <nav>
-    <span class="nav-name">John Marc Dela Cruz</span>
+    <div class="nav-identity">
+      <span class="nav-name">John Marc Dela Cruz</span>
+      <a href="mailto:createdbyjmdc@gmail.com" class="nav-email">createdbyjmdc@gmail.com</a>
+    </div>
     <div class="nav-ctas">
-      <a href="mailto:jmarcdcruz@gmail.com" class="btn-outline">Email</a>
+      <a href="mailto:createdbyjmdc@gmail.com" class="btn-outline">Email</a>
       <a href="#contact" class="btn-solid">Book a Call</a>
     </div>
   </nav>
@@ -395,11 +415,11 @@
   <!-- HERO -->
   <section id="hero">
     <div class="hero-inner">
-      <span class="hero-tag">UGC Creator · Est. 2024</span>
+      <span class="hero-tag">UGC Creator · Est. 2026</span>
       <h1>John Marc<br><em>Dela Cruz</em></h1>
       <p class="hero-sub">Fitness &amp; Wellness &nbsp;/&nbsp; Lifestyle &nbsp;/&nbsp; Tech &nbsp;/&nbsp; Fashion</p>
       <div class="hero-ctas">
-        <a href="mailto:jmarcdcruz@gmail.com" class="btn-solid">Email Me</a>
+        <a href="mailto:createdbyjmdc@gmail.com" class="btn-solid">Email Me</a>
         <a href="#services" class="btn-outline">View Packages</a>
       </div>
     </div>
@@ -585,7 +605,7 @@
       <p class="section-label">Let's Work</p>
       <h2>Ready to create<br>content that<br>converts?</h2>
       <div class="contact-ctas">
-        <a href="mailto:jmarcdcruz@gmail.com" class="btn-solid">Email Me</a>
+        <a href="mailto:createdbyjmdc@gmail.com" class="btn-solid">Email Me</a>
         <a href="#" class="btn-outline">Book a Call</a>
       </div>
 
@@ -596,7 +616,7 @@
   <footer>
     <span class="footer-name">John Marc Dela Cruz</span>
     <div class="footer-links">
-      <a href="mailto:jmarcdcruz@gmail.com">Email</a>
+      <a href="mailto:createdbyjmdc@gmail.com">Email</a>
       <a href="https://www.instagram.com/its1name/" target="_blank" rel="noopener">Instagram</a>
     </div>
     <span class="footer-copy">© 2026</span>
