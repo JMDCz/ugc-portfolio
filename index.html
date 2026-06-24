@@ -394,6 +394,14 @@
       .hero-inner { padding: 7rem 1.5rem 4rem; }
       footer { padding: 1.25rem 1.5rem; flex-direction: column; gap: 1rem; text-align: center; }
       .video-card { flex: 0 0 calc(50% - 0.45rem); }
+      .video-carousel {
+        flex-wrap: wrap;
+        overflow-x: visible;
+        scroll-snap-type: none;
+        scrollbar-width: none;
+        padding-bottom: 0;
+      }
+      .video-carousel::-webkit-scrollbar { display: none; }
       .rc-deliverable-grid { grid-template-columns: repeat(2, 1fr); }
       .rc-pkg-grid { grid-template-columns: 1fr; }
     }
