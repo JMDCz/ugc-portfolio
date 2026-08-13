@@ -6,7 +6,7 @@
   <title>JM | UGC Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -34,13 +34,14 @@
     .section-inner {
       max-width: var(--max-width);
       margin: 0 auto;
-      padding: 7rem 3rem;
+      padding: 4rem 3rem;
     }
 
     .section-label {
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 52px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
       text-transform: uppercase;
       color: var(--text-1);
       margin-bottom: 2rem;
@@ -169,9 +170,10 @@
     .portfolio-category { margin-bottom: 4rem; }
 
     .portfolio-category-label {
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.1em;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
       color: var(--text-3);
       margin-bottom: 1.25rem;
@@ -202,45 +204,57 @@
 
     .video-thumb {
       aspect-ratio: 9/16;
-      background: var(--bg);
-      border: 1px solid var(--border);
       border-radius: 14px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-      cursor: pointer;
-      transition: border-color 0.2s;
       position: relative;
       overflow: hidden;
+      cursor: pointer;
     }
 
-    .video-thumb:hover { border-color: var(--text-1); }
+    .video-thumb iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: 0;
+      display: block;
+    }
+
+    .video-poster {
+      position: absolute;
+      inset: 0;
+      background: var(--bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.25s;
+      z-index: 2;
+    }
+
+    .video-poster img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
 
     .play-btn {
-      width: 44px;
-      height: 44px;
-      border: 1.5px solid var(--border);
+      position: absolute;
+      width: 52px;
+      height: 52px;
+      background: rgba(255,255,255,0.92);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: border-color 0.2s, background 0.2s;
+      transition: transform 0.2s, background 0.2s;
+      z-index: 3;
     }
 
-    .video-thumb:hover .play-btn { border-color: var(--text-1); background: var(--text-1); }
+    .video-thumb:hover .play-btn { transform: scale(1.08); background: #fff; }
 
     .play-btn svg {
-      width: 12px; height: 12px;
-      fill: var(--text-3);
-      margin-left: 2px;
-      transition: fill 0.2s;
+      width: 14px; height: 14px;
+      fill: var(--text-1);
+      margin-left: 3px;
     }
-
-    .video-thumb:hover .play-btn svg { fill: var(--surface); }
-
-    .video-type { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-3); }
 
     .video-meta { font-size: 11px; font-weight: 400; color: var(--text-2); }
 
@@ -285,12 +299,50 @@
     .rc-pkg-list li { font-size: 12px; color: var(--text-2); padding: 3px 0; display: flex; align-items: flex-start; gap: 7px; line-height: 1.5; }
     .rc-pkg-list li::before { content: '✓'; font-size: 11px; color: #2d6a4f; flex-shrink: 0; margin-top: 1px; font-weight: 600; }
 
+    .rc-bundle-note {
+      font-size: 13px;
+      color: var(--text-2);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+      max-width: 560px;
+    }
+
     .rc-footer-note {
       background: var(--surface); border: 1px solid var(--border);
       border-left: 3px solid var(--text-1); border-radius: 0 10px 10px 0;
       padding: 14px 18px; font-size: 12px; color: var(--text-2); line-height: 1.8;
     }
     .rc-footer-note strong { font-weight: 500; color: var(--text-1); }
+
+    /* ---- BRAND COLLABORATIONS ---- */
+    #brands { border-top: 1px solid var(--border); }
+    #brands .section-label { text-align: center; }
+
+    .brand-logos {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2.5rem;
+    }
+
+    .brand-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.65rem;
+      width: 110px;
+    }
+
+    .brand-mark {
+      width: 88px;
+      height: 88px;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .brand-mark img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    .brand-name { font-size: 11px; font-weight: 400; color: var(--text-2); text-align: center; }
 
     /* ---- ABOUT ---- */
     #about { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
@@ -443,28 +495,55 @@
         <p class="portfolio-category-label">UGC Examples</p>
         <div class="video-carousel">
           <div class="video-card">
-            <div class="video-thumb">
-              <iframe src="https://player.vimeo.com/video/1199558843?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+            <div class="video-thumb" data-vimeo="1199558843">
+              <div class="video-poster">
+                <img src="images/thumb-theragun.jpg" alt="Problem-Solution: Theragun Example" />
+                <div class="play-btn"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></div>
+              </div>
             </div>
             <p class="video-meta">Problem-Solution: Theragun Example</p>
           </div>
           <div class="video-card">
-            <div class="video-thumb">
-              <iframe src="https://player.vimeo.com/video/1199559111?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+            <div class="video-thumb" data-vimeo="1199559111">
+              <div class="video-poster">
+                <img src="images/thumb-protein.jpg" alt="B-Roll: Protein Powder Example" />
+                <div class="play-btn"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></div>
+              </div>
             </div>
             <p class="video-meta">B-Roll: Protein Powder Example</p>
           </div>
           <div class="video-card">
-            <div class="video-thumb">
-              <iframe src="https://player.vimeo.com/video/1199880600?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+            <div class="video-thumb" data-vimeo="1199880600">
+              <div class="video-poster">
+                <img src="images/thumb-dji.jpg" alt="Product Review: DJI Mic Mini 2 Example" />
+                <div class="play-btn"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></div>
+              </div>
             </div>
             <p class="video-meta">Product Review: DJI Mic Mini 2 Example</p>
           </div>
           <div class="video-card">
-            <div class="video-thumb">
-              <iframe src="https://player.vimeo.com/video/1204034149?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Zima Dentalpod UGC Example"></iframe>
+            <div class="video-thumb" data-vimeo="1204034149">
+              <div class="video-poster">
+                <img src="images/thumb-dentalpod.jpg" alt="Talking Head & Problem-Solution: Dental Pod Example" />
+                <div class="play-btn"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></div>
+              </div>
             </div>
             <p class="video-meta">Talking Head & Problem-Solution: Dental Pod Example</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-category">
+        <p class="portfolio-category-label">UGC Deliverables</p>
+        <div class="video-carousel">
+          <div class="video-card">
+            <div class="video-thumb" data-vimeo="1217854585">
+              <div class="video-poster">
+                <img src="images/thumb-circadia.jpg" alt="App - Talking Head/Product Demo" />
+                <div class="play-btn"><svg viewBox="0 0 10 10"><polygon points="2,1 9,5 2,9"/></svg></div>
+              </div>
+            </div>
+            <p class="video-meta">App - Talking Head/Product Demo</p>
           </div>
         </div>
       </div>
@@ -479,55 +558,44 @@
 
       <!-- Individual deliverables -->
       <div class="rc-subsection">
-        <p class="rc-subsection-label">Individual deliverables</p>
+        <p class="rc-subsection-label">Individual Services</p>
         <div class="rc-deliverable-grid">
           <div class="rc-d-card">
             <span class="rc-d-icon">📱</span>
             <p class="rc-d-title">Short-form video</p>
             <p class="rc-d-desc">15–30 sec · TikTok/Reels style · edited with captions</p>
-            <p class="rc-d-price">$125</p>
-            <p class="rc-d-unit">per video</p>
           </div>
-          <div class="rc-d-card rc-featured">
-            <span class="rc-badge">Most requested</span>
+          <div class="rc-d-card">
+            <span class="rc-d-icon">🎥</span>
             <p class="rc-d-title">Mid-form video</p>
             <p class="rc-d-desc">31–60 sec · demo, unboxing, or testimonial</p>
-            <p class="rc-d-price">$175</p>
-            <p class="rc-d-unit">per video</p>
           </div>
           <div class="rc-d-card">
             <span class="rc-d-icon">🎬</span>
             <p class="rc-d-title">Long-form video</p>
             <p class="rc-d-desc">61–90 sec · tutorial, review, or storytelling</p>
-            <p class="rc-d-price">$250</p>
-            <p class="rc-d-unit">per video</p>
           </div>
           <div class="rc-d-card">
             <span class="rc-d-icon">📷</span>
             <p class="rc-d-title">Static photo</p>
             <p class="rc-d-desc">Lifestyle or product · edited &amp; retouched</p>
-            <p class="rc-d-price">$50</p>
-            <p class="rc-d-unit">per image</p>
           </div>
           <div class="rc-d-card">
             <span class="rc-d-icon">🖼</span>
             <p class="rc-d-title">Photo set</p>
             <p class="rc-d-desc">5 images · varied angles/scenes, single shoot</p>
-            <p class="rc-d-price">$200</p>
-            <p class="rc-d-unit">per set</p>
           </div>
         </div>
       </div>
 
       <!-- Bundles & packages -->
       <div class="rc-subsection">
-        <p class="rc-subsection-label">Bundles &amp; packages</p>
-        <div class="rc-pkg-grid">
+        <p class="rc-subsection-label">Bundles &amp; Packages</p>
+        <p class="rc-bundle-note">Custom bundles are available upon request — tailored to your brand's needs and content goals. Here's an example of what a typical package looks like:</p>
+        <div class="rc-pkg-grid" style="grid-template-columns: 1fr; max-width: 360px;">
           <div class="rc-pkg-card">
-            <div class="rc-pkg-top"><span class="rc-pkg-name">Starter</span></div>
-            <p class="rc-pkg-price">$300</p>
-            <p class="rc-pkg-save">Save ~$25 vs. individual</p>
-            <hr class="rc-pkg-divider" />
+            <div class="rc-pkg-top"><span class="rc-pkg-name">Starter Bundle</span></div>
+            <hr class="rc-pkg-divider" style="margin-top: 12px;" />
             <ul class="rc-pkg-list">
               <li>2 × short-form videos (30 sec)</li>
               <li>3 lifestyle photos</li>
@@ -535,46 +603,32 @@
               <li>Organic usage included</li>
             </ul>
           </div>
-          <div class="rc-pkg-card rc-popular">
-            <div class="rc-pkg-top">
-              <span class="rc-pkg-name">Brand essentials</span>
-              <span class="rc-pkg-tag">Popular</span>
-            </div>
-            <p class="rc-pkg-price">$550</p>
-            <p class="rc-pkg-save">Save ~$75 vs. individual</p>
-            <hr class="rc-pkg-divider" />
-            <ul class="rc-pkg-list">
-              <li>2 × mid-form videos (60 sec)</li>
-              <li>1 × short-form hook video</li>
-              <li>5-image photo set</li>
-              <li>2 revision rounds</li>
-              <li>Organic usage included</li>
-            </ul>
-          </div>
-          <div class="rc-pkg-card">
-            <div class="rc-pkg-top"><span class="rc-pkg-name">Content month</span></div>
-            <p class="rc-pkg-price">$900</p>
-            <p class="rc-pkg-save">Save ~$150 vs. individual</p>
-            <hr class="rc-pkg-divider" />
-            <ul class="rc-pkg-list">
-              <li>4 × short-form videos</li>
-              <li>2 × mid-form videos</li>
-              <li>1 × long-form video</li>
-              <li>10-image photo set</li>
-              <li>3 revision rounds</li>
-              <li>Organic usage included</li>
-            </ul>
-          </div>
         </div>
       </div>
 
       <div class="rc-footer-note">
-        <strong>All rates include organic usage</strong> (brand's own social channels). Usage rights for paid ads or boosted content are available on request. Standard turnaround is 5–7 business days. Custom scopes and retainer arrangements welcome.
+        <strong>Interested in a custom bundle?</strong> Reach out and we'll put together a package that works for your brand — whether that's a one-off shoot or an ongoing content arrangement.
       </div>
 
     </div>
   </section>
 
+  <!-- BRAND COLLABORATIONS -->
+  <section id="brands">
+    <div class="section-inner">
+      <p class="section-label">Brands I've Worked With</p>
+
+      <div class="brand-logos">
+        <div class="brand-card">
+          <div class="brand-mark">
+            <img src="images/logo-circadiaos.png" alt="CircadiaOS logo" />
+          </div>
+          <p class="brand-name">CircadiaOS</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
 
   <!-- WHO AM I -->
   <section id="about">
@@ -611,12 +665,28 @@
     <span class="footer-name">John Marc Dela Cruz</span>
     <div class="footer-links">
       <a href="mailto:createdbyjmdc@gmail.com">Email</a>
-      <a href="https://www.instagram.com/its1namejm/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.instagram.com/byjm.dc/" target="_blank" rel="noopener">Instagram</a>
       <a href="https://x.com/createdbyjm" target="_blank" rel="noopener">X</a>
     </div>
     <span class="footer-copy">© 2026</span>
   </footer>
 
-  <script src="https://player.vimeo.com/api/player.js"></script>
+  <script>
+    document.querySelectorAll('.video-thumb[data-vimeo]').forEach(function(thumb) {
+      thumb.addEventListener('click', function() {
+        var id = this.getAttribute('data-vimeo');
+        var iframe = document.createElement('iframe');
+        iframe.src = 'https://player.vimeo.com/video/' + id + '?autoplay=1&title=0&byline=0&portrait=0&badge=0&autopause=0&app_id=58479';
+        iframe.allow = 'autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media';
+        iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+        iframe.allowFullscreen = true;
+        this.querySelector('.video-poster').style.opacity = '0';
+        setTimeout(function() {
+          thumb.querySelector('.video-poster').remove();
+        }, 250);
+        this.appendChild(iframe);
+      });
+    });
+  </script>
 </body>
 </html>
